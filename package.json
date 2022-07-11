@@ -1,0 +1,28 @@
+{
+  "name": "ats-automation",
+  "version": "1.0.0",
+  "description": "Framework for Recruitment System ",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": ".",
+    "unit-tests": "jest --coverage",
+    "api-tests": "testcafe ./tests/api/",
+    "ui-tests": "testcafe ./tests/ui/",
+    "cucumber": "cucumber-js --format json:reports/report.json",
+    "cucumber-report": "node index.js",
+    "specific-test": "testcafe ./tests/api/applicant",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "author": "AT-14",
+  "license": "ISC",
+  "dependencies": {
+    "testcafe": "^1.9.4",
+    "@cucumber/cucumber": "^8.0.0",
+    "npm": "^6.0.0",
+    "npx": "^10.2.2"
+  }
+}

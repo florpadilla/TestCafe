@@ -58,14 +58,9 @@ setDefaultTimeout(timeout);
 
  Before(async function () {
     runTest(n, "chrome");
-    console.log("despues del run test del before");
-    console.log(testControllerHolder.getResolver);
     createTestFile();
-    console.log(testControllerHolder.getResolver);
     n += 2;
-    console.log(testControllerHolder.getResolver);
     return this.waitForTestController.then(function (testController) {
-        console.log("esta ingresando en el maximizeWindow del before");
         return testController.maximizeWindow();
     });
   });
@@ -78,7 +73,6 @@ setDefaultTimeout(timeout);
 After(function() {
     fs.unlinkSync("cucumbertest.js");
     testControllerHolder.free();
-    console.log("el after ya se ejecutó y se está liberando todo");
 });
 
 /**
@@ -98,8 +92,6 @@ AfterAll(function() {
      */
     function checkLastResponse() {
         if (testController.testRun.lastDriverStatusResponse === "test-done-confirmation") {
-            console.log(testController.testRun.lastDriverStatusResponse);
-            console.log("esta imprimiento el lastDriverStatusResponse");
             cafeRunner.close();
             process.exit();
         }

@@ -8,18 +8,11 @@ const testControllerHolder = {
      * This function will be called by the TestCafe test in the beginning.
      */
     capture: function(t) {
-        console.log("esta ingresando al capture");
         testControllerHolder.testController = t;
-        console.log(testControllerHolder.getResolver);
         if (testControllerHolder.getResolver) {
-            console.log("esta ingresando al if del capture");
             testControllerHolder.getResolver(t);
         }
-        console.log("ahora vuelvo a imprimir el getResolver");
-        console.log(testControllerHolder.getResolver);
-        console.log("paso el if deberia retornar promesa");
         return new Promise(function(resolve) {
-            console.log("esta retornando la promesa y dandome el resolve");
             testControllerHolder.captureResolver = resolve;
         });
     },
@@ -32,7 +25,6 @@ const testControllerHolder = {
         testControllerHolder.testController = null;
         if (testControllerHolder.captureResolver) {
             testControllerHolder.captureResolver();
-            console.log("entro al if del free");
         }
     },
 
@@ -44,15 +36,10 @@ const testControllerHolder = {
     get: function() {
         return new Promise(function(resolve) {
             if (testControllerHolder.testController) {
-                console.log("esta en el if del get del testcontrollerHolder");
                 resolve(testControllerHolder.testController);
             } else {
-                testControllerHolder.getResolver = resolve; //ver aqui. en lugar de linea 50 linea 48
-                console.log("esta ingresando al else del get del testcontrollerHolder");
-                resolve(testControllerHolder.testController);
+                testControllerHolder.getResolver = resolve;
             }
-            console.log("salio del get");
-            console.log(testControllerHolder.getResolver);
         });
     },
 };

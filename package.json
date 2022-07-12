@@ -12,9 +12,7 @@
   "author": "AT-14",
   "license": "ISC",
   "dependencies": {
-    "testcafe": "^1.9.4",
-    "@cucumber/cucumber": "^8.0.0",
-    "npm": "^6.14.17",
-    "npx": "^10.2.2"
+    "@cucumber/cucumber": "^8.4.0",
+    "testcafe": "^1.9.4"
   }
 }

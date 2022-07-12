@@ -1,0 +1,42 @@
+{
+    "test1": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+                "name": {"type":"string"}
+        }
+      },
+      "test2":{
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+                "name": {"type":"string"},
+                "age":{"type":"number"},
+                "address":{"type":"string"},
+                "ocupation":{"type":"string"},
+                "married":{"type":"boolean"},
+                "DNI":{"type":"number"},
+                "cellphone":{"type":"number"},
+                "secrets":{"type":["string","null"]},
+                "money":{"type":"integer"}
+        }
+      },
+      "test3":{
+        "type": "array",
+        "additionalProperties": false,
+        "items":{
+                "properties": {
+                        "name": {"type":"string"},
+                        "age":{"type":"number"},
+                        "address":{"type":"string"},
+                        "ocupation":{"type":"string"},
+                        "married":{"type":"boolean"},
+                        "DNI":{"type":"number"},
+                        "cellphone":{"type":"number"},
+                        "secrets":{"type":["string","null"]},
+                        "money":{"type":"integer"}
+                }
+        }
+      }
+
+}

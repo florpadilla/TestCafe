@@ -1,0 +1,30 @@
+{
+    "development": {
+        "baseUrl": ""
+    },
+    "testing": {
+        "productionUrl": "http://10.24.48.66:4200/",
+        "applicantBaseUrl": "http://localhost:9092/",
+        "bootcampBaseUrl": "http://localhost:9093/",
+        "frontendBaseUrl": "http://localhost:4200/",
+        "mainUser": {
+            "credentials": {
+                "username": "admin",
+                "password": "Admin123#"
+            },
+            "headers": {
+                "Accept": "*/*",
+                "Authorization": ""
+            }
+        }
+    },
+    "staging": {
+        "baseUrl": ""
+    },
+    "production": {
+        "baseUrl": ""
+    },
+    "uat": {
+        "baseUrl": ""
+    }
+}

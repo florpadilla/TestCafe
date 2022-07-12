@@ -14,5 +14,9 @@
   "dependencies": {
     "@cucumber/cucumber": "^8.4.0",
     "testcafe": "^1.9.4"
+  },
+  "devDependencies": {
+    "cucumber-html-reporter": "^5.5.0",
+    "testcafe-reporter-html": "^1.4.6"
   }
 }

@@ -1,9 +1,13 @@
 /* eslint-disable no-undef */
 const examplePage = require("../support/pages/loginPageObject.js");
 const {Given, When, Then} = require("@cucumber/cucumber");
+const ConfigManager = require ("../../core/utils/configManager");
+
+const user = ConfigManager.env.mainUser.credentials;
+const loginPage = ConfigManager.env.frontendBaseUrl;
 
 Given("I navigate to the login page", async function () {
-    await testController.navigateTo("http://google.com/");
+    await testController.navigateTo(loginPage);
 });
 
 Given("I introduce the user values to login:", async function(table) {

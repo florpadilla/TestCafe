@@ -3,11 +3,11 @@
 const fs = require("fs");
 const createTestCafe = require("testcafe");
 const testControllerHolder = require("./testControllerHolder");
-const {AfterAll, setDefaultTimeout, Before, After } = require("@cucumber/cucumber");
+const {AfterAll, setDefaultTimeout, Before, After} = require("@cucumber/cucumber");
 
-const timeout = 50000;
+const timeout = 100000;
 let cafeRunner = null;
-let n=0;
+let n = 0;
 
 /**
  *Inject the TestCafe test controller object into the context of each step definition.
@@ -29,21 +29,18 @@ function createTestFile() {
 /**
  * Create a runner function with configurations like src, screenshots, browsers.
  */
- function runTest(iteration, browser) {
-    return createTestCafe("localhost", 1338 + iteration, 1339 + iteration)
-      .then(function (tc) {
-        cafeRunner = tc;
-        const runner = tc.createRunner();
-        return runner
-          .src("./cucumbertest.js")
-          .screenshots("reports/screenshots/", true)
-          .browsers(browser)
-          .run()
-          .catch(function (error) {
-            console.error(error);
-          });
-      })
-  }
+function runTest(iteration, browser) {
+    createTestCafe("localhost", 1337 + iteration , 1338 + iteration)
+        .then(function(t) {
+            cafeRunner = t;
+            const runner = t.createRunner();
+            return runner
+                .src("./cucumbertest.js")
+                .screenshots("reports/screenshots/", true)
+                .browsers(browser)
+                .run();
+        });
+}
 
 // Setting the default time out value
 setDefaultTimeout(timeout);
@@ -56,14 +53,14 @@ setDefaultTimeout(timeout);
  *5. Then, it also maximizes the test controller window.
  */
 
- Before(async function () {
+Before(function() {
     runTest(n, "chrome");
     createTestFile();
     n += 2;
-    return this.waitForTestController.then(function (testController) {
+    return this.waitForTestController.then(function(testController) {
         return testController.maximizeWindow();
     });
-  });
+});
 
 /*
  * After hook runs after each Cucumber test. It is used to unlink the test and make testController "null".

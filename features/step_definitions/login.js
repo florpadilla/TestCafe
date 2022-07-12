@@ -3,7 +3,7 @@ const examplePage = require("../support/pages/loginPageObject.js");
 const {Given, When, Then} = require("@cucumber/cucumber");
 
 Given("I navigate to the login page", async function () {
-    await testController.navigateTo("http://localhost:4200/");
+    await testController.navigateTo("http://google.com/");
 });
 
 Given("I introduce the user values to login:", async function(table) {
